@@ -34,10 +34,26 @@ session_start();
     </div>
     <div id="result">
         <h1>END POINT RESULTS</h1>
-
-        <div id="status">
-            <p>STATUS</p>
-        </div>
+        <?php
+        if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
+            unset($_SESSION['success']);
+        ?>
+            <div id="status" class="success">
+                <p>SUCCESS</p>
+            </div>
+        <?php
+        } else if (isset($_SESSION['connection_error']) && !empty($_SESSION['connection_error'])) {
+            echo "error";
+            unset($_SESSION['connection_error']);
+        ?>
+            <div id="status" class="error">
+                <p>ERROR</p>
+            </div>
+        <?php } else { ?>
+            <div id="status">
+                <p>STATUS</p>
+            </div>
+        <?php } ?>
         <p id="speed">
 
         </p>
@@ -81,36 +97,6 @@ session_start();
                 ?>
             </p>
             <form action="script.php" method="POST" id="api-form">
-                <!-- <buttonn id="add-param">Add Required parameter</buttonn>
-                <p>
-                    <label for="request">Request Type</label>
-                    <select name="request" id="request">
-                        <option value="" selected>Select One</option>
-                        <option value="GET">GET</option>
-                        <option value="POST">POST</option>
-                        <option value="UPDATE">UPDATE</option>
-                        <option value="DELETE">DELETE</option>
-                    </select>
-                </p>
-                <p>Required Parameters</p>
-                <p>
-                    <input type="text" name="url" placeholder="add url">
-                </p>
-                <p>
-                    <input type="text" name="name">
-                </p> -->
-                <!-- <p>
-                    <input type="email" name="email">
-                </p>
-                <p>
-                    <input type="password" name="password">
-                </p> -->
-                <!-- <p>
-                    <input type="text" name="city">
-                </p>
-                <p>
-                    <input type="text" name="id">
-                </p> -->
             </form>
         </div>
     </div>
@@ -158,13 +144,6 @@ session_start();
                 $("#api-form").append(inputText);
             })
         })
-
-
-        // let add = document.getElementById("add-param");
-        // add.addEventListener('click', () => {
-        //     apiForm = document.getElementById('api-form');
-
-        // })
     </script>
 </body>
 

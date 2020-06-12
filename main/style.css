@@ -143,6 +143,14 @@ tr:nth-child(even) {
   height: 80px;
 }
 
+#status.success {
+  background: #4caf50;
+}
+
+#status.error {
+  background: #ef5350;
+}
+
 #status p {
   position: absolute;
   top: 50%;
