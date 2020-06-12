@@ -8,6 +8,7 @@
       "parameter": [
         {
           "parameter_name": "id",
+          "label": "Id",
           "parameter_type": "text"
         }
       ]
@@ -19,6 +20,7 @@
       "parameter": [
         {
           "parameter_name": "id",
+          "label": "Id",
           "parameter_type": "text"
         }
       ]
@@ -30,15 +32,18 @@
       "parameter": [
         {
           "parameter_name": "name",
+          "label": "Name",
           "parameter_type": "text"
         },
         {
           "parameter_name": "email",
+          "label": "Email",
           "parameter_type": "email"
         },
         {
           "parameter_name": "phonenumber",
-          "parameter_type": "number"
+          "parameter_type": "number",
+          "label": "Phone"
         }
       ]
     },
@@ -49,15 +54,23 @@
       "parameter": [
         {
           "parameter_name": "name",
+          "parameter_type": "text",
+          "label": "Name"
+        },
+        {
+          "parameter_name": "id",
+          "label": "Id",
           "parameter_type": "text"
         },
         {
           "parameter_name": "email",
-          "parameter_type": "email"
+          "parameter_type": "email",
+          "label": "Email"
         },
         {
           "parameter_name": "phonenumber",
-          "parameter_type": "number"
+          "parameter_type": "number",
+          "label": "Phone"
         }
       ]
     }
