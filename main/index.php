@@ -81,7 +81,7 @@ session_start();
                 ?>
             </p>
             <form action="script.php" method="POST" id="api-form">
-                <buttonn id="add-param">Add Required parameter</buttonn>
+                <!-- <buttonn id="add-param">Add Required parameter</buttonn>
                 <p>
                     <label for="request">Request Type</label>
                     <select name="request" id="request">
@@ -98,7 +98,7 @@ session_start();
                 </p>
                 <p>
                     <input type="text" name="name">
-                </p>
+                </p> -->
                 <!-- <p>
                     <input type="email" name="email">
                 </p>
@@ -111,14 +111,12 @@ session_start();
                 <p>
                     <input type="text" name="id">
                 </p> -->
-                <p>
-                    <button type="submit">Test Endpoint</button>
-                </p>
             </form>
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
+        let apiForm = document.getElementById('api-form');
         let endpoints = [...document.getElementsByClassName('endpoints')];
         let apis = [...document.getElementsByClassName('fa-angle-down')];
         apis.forEach(e => {
@@ -140,23 +138,33 @@ session_start();
 
         endpoints.forEach(endpoint => {
             endpoint.addEventListener('click', (e) => {
+                $("#api-form").html('');
                 let inputText = '';
                 let params = JSON.parse(e.target.dataset.param)
+                inputText += `<p> <label>Request Type</label>
+                <input type="text" name="request" value="${e.target.dataset.request}" readonly>
+                 </p>
+                `
                 for (let i = 0; i < params.length; i++) {
-                    inputText += `<input type="${params[i].parameter_type}" name="${params[i].parameter_name}">`
+                    inputText += `<p> <label for=${params[i].parameter_name}>${params[i].label}</label>
+                    <input type="${params[i].parameter_type}" name="${params[i].parameter_name}">
+                    </p>
+                    `;
                 }
-                inputText += `<input type="${e.target.dataset.url}" name="url" hidden>`
-                inputText += `<input type="${e.target.dataset.request}" name="url" hidden>`
-                console.log(inputText);
+                inputText += `<input type="text" value="${e.target.dataset.url}" name="url" hidden>`
+                inputText += `<p>
+                    <button type="submit">Test Endpoint</button>
+                </p>`
+                $("#api-form").append(inputText);
             })
         })
 
 
-        let add = document.getElementById("add-param");
-        add.addEventListener('click', () => {
-            apiForm = document.getElementById('api-form');
+        // let add = document.getElementById("add-param");
+        // add.addEventListener('click', () => {
+        //     apiForm = document.getElementById('api-form');
 
-        })
+        // })
     </script>
 </body>
 

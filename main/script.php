@@ -18,7 +18,7 @@ if (checkEmpty($_POST)) {
 } else {
     function filter($val)
     {
-        if ($val != "url" && $val != "GET" && $val != "POST" && $val != "UPDATE" && $val != "DELETE") {
+        if ($val != "url" && $val != "GET" && $val != "POST" && $val != "PUT" && $val != "DELETE") {
             return $val;
         }
     }
@@ -26,7 +26,7 @@ if (checkEmpty($_POST)) {
     // print_r($_POST);
     // die();
     $i = 0;
-    if ($_POST['request'] == "POST" || $_POST['request'] == "UPDATE") {
+    if ($_POST['request'] == "POST" || $_POST['request'] == "PUT") {
         $post_data = '';
         $id = '/' . $_POST['id'];
         foreach ($filtered as $key => $item) {
@@ -64,7 +64,7 @@ if (checkEmpty($_POST)) {
             }
         } else {
             $requestKeys = array_keys($_POST);
-            $queryParam = '/' . $_POST[$requestKeys[2]];
+            $queryParam = '/' . $_POST[$requestKeys[1]];
         }
     }
 
@@ -78,6 +78,8 @@ if (checkEmpty($_POST)) {
     }
     if ($_POST['request'] == "GET") {
         $url .= $queryParam;
+        // echo $url;
+        // die();
         curl_setopt($ch, CURLOPT_URL, "$url");
     }
 
@@ -86,8 +88,10 @@ if (checkEmpty($_POST)) {
         $url .= $queryParam;
         curl_setopt($ch, CURLOPT_URL, "$url");
     }
-    if ($_POST['request'] == "UPDATE") {
+    if ($_POST['request'] == "PUT") {
         $url .= $id;
+        // echo $post_data;
+        // die();
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
         curl_setopt($ch, CURLOPT_URL, "$url");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
