@@ -54,10 +54,15 @@ function prepareEndpoints($arr)
 
     $endpointText = '';
     $endpoints = $arr->endpoints;
-    // print_r($endpoints[0]->endpoint_name);
-    // die();
     for ($i  =  0; $i < count($endpoints); $i++) {
-        $endpointText = "<li>$endpoints[$i]->endpoint_name</li>";
+        $ename = $endpoints[$i]->endpoint_name;
+        $endpoint_url =
+            $endpoints[$i]->endpoint_url;
+        $request_type =
+            $endpoints[$i]->endpoint_type;
+        $param = json_encode($endpoints[$i]->parameter);
+
+        $endpointText .= "<li data-param=$param  data-url=$endpoint_url class='endpoint' data-request=$request_type>$ename</li>";
     }
     return $endpointText;
 }

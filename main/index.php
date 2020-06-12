@@ -23,148 +23,9 @@ session_start();
             <h2><i class="fas fa-tachometer-alt"></i> <span class="dash-text">DASHBOARD</span> </h2>
             <h2><i class="fas fa-server"></i> <span class="dash-text">API's</span> </h2>
             <ul>
-                <li class="apis"><i class="fas fa-users-cog"></i> <span class="dash-text">User Manager</span><i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">User Manager</p>
-                        <p>End Points</p>
-                        <ul>
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"> <i class="fas fa-user-lock"></i> <span class="dash-text">Authentication</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Authentication</p>
-                        <p>End Points</p>
-                        <ul>
-
-                            <li>Login</li>
-                            <li>Logout</li>
-                            <li>Reset Password</li>
-                            <li>Login with google</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="fas fa-cogs"></i> <span class="dash-text">Company Settings</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Company Settings</p>
-                        <p>End Points</p>
-                        <ul>
-                            <li>Add Company</li>
-                            <li>Delete Company</li>
-                            <li>Set Company Name</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="fas fa-mail-bulk"></i>
-                    <span class="dash-text">Send Email Notification</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Send Email Notification</p>
-                        <p>End Points</p>
-                        <ul>
-                            <li>Send Email</li>
-                            <li>Send Email with Template</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="fas fa-user-shield"></i> <span class="dash-text">Show Dashboard</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Show Dashboard</p>
-                        <p>End Points</p>
-                        <ul>
-
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="far fa-newspaper"></i> <span class="dash-text">Sending Newsletter</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Sending Newsletter</p>
-                        <p>End Points</p>
-                        <ul>
-
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="fas fa-cloud"></i> <span class="dash-text">CRUD</span> <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">CRUD</p>
-                        <p>End Points</p>
-                        <ul>
-
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                </li>
-                <li class="apis"><i class="far fa-paper-plane"></i><span class="dash-text">SAAS App Subscription</span>
-                    <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">SAAS App Subscription</p>
-                        <p>End Points</p>
-                        <ul>
-
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="apis"><i class="fas fa-envelope-open-text"></i> <span class="dash-text">Team
-                        Invitation</span>
-                    <i class="fas fa-angle-down left"></i>
-                    <div class="endpoints">
-
-                        <p class="api-name">Team
-                            Invitation</p>
-                        <p>End Points</p>
-                        <ul>
-                            <li>Add User</li>
-                            <li>Remove User</li>
-                            <li>Set User Firstname</li>
-                            <li>Set User Lastname</li>
-                            <li>Change User Email</li>
-                            <li>Set User Phone</li>
-                        </ul>
-                    </div>
-                </li>
+                <?php
+                getapis();
+                ?>
             </ul>
         </div>
         <div id="widget">
@@ -173,9 +34,7 @@ session_start();
     </div>
     <div id="result">
         <h1>END POINT RESULTS</h1>
-        <?php
-        getapis();
-        ?>
+
         <div id="status">
             <p>STATUS</p>
         </div>
@@ -183,12 +42,6 @@ session_start();
 
         </p>
         <div id="table-container">
-            <p>
-                <pre>
-
-                </pre>
-
-            </p>
             <h3>Returned Data</h3>
             <table>
                 <?php
@@ -266,6 +119,7 @@ session_start();
     </div>
 
     <script>
+        let endpoints = [...document.getElementsByClassName('endpoints')];
         let apis = [...document.getElementsByClassName('fa-angle-down')];
         apis.forEach(e => {
             e.addEventListener('click', () => {
@@ -283,6 +137,20 @@ session_start();
                 console.log(last.style.width)
             })
         })
+
+        endpoints.forEach(endpoint => {
+            endpoint.addEventListener('click', (e) => {
+                let inputText = '';
+                let params = JSON.parse(e.target.dataset.param)
+                for (let i = 0; i < params.length; i++) {
+                    inputText += `<input type="${params[i].parameter_type}" name="${params[i].parameter_name}">`
+                }
+                inputText += `<input type="${e.target.dataset.url}" name="url" hidden>`
+                inputText += `<input type="${e.target.dataset.request}" name="url" hidden>`
+                console.log(inputText);
+            })
+        })
+
 
         let add = document.getElementById("add-param");
         add.addEventListener('click', () => {
