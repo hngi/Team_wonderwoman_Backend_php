@@ -45,7 +45,7 @@ if (checkEmpty($_POST)) {
 
     if ($_POST['request'] == "DELETE") {
         $requestKeys = array_keys($_POST);
-        $queryParam = '/' . $_POST[$requestKeys[2]];
+        $queryParam = '/' . $_POST[$requestKeys[1]];
     }
     if ($_POST['request'] == "GET") {
         $queryParam = '';
@@ -78,8 +78,6 @@ if (checkEmpty($_POST)) {
     }
     if ($_POST['request'] == "GET") {
         $url .= $queryParam;
-        // echo $url;
-        // die();
         curl_setopt($ch, CURLOPT_URL, "$url");
     }
 
@@ -90,8 +88,6 @@ if (checkEmpty($_POST)) {
     }
     if ($_POST['request'] == "PUT") {
         $url .= $id;
-        // echo $post_data;
-        // die();
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
         curl_setopt($ch, CURLOPT_URL, "$url");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
@@ -118,9 +114,12 @@ if (checkEmpty($_POST)) {
     $err = curl_error($ch);
 
     if ($err) {
-        echo "cURL Error #:" . $err;
+        $_SESSION['connection_error'] = "Service not Avaible";
+        header("location:index.php");
+        die();
     }
     curl_close($ch);
+    $_SESSION['success'] = "Request Sucessful";
     header("location:index.php");
     die();
 }
