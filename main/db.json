@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "firstname": "badmus",
+      "lastname": "Tboy",
+      "phone": "09022442244",
+      "password": "12345",
+      "description": "i live large everyday like my life is too good",
+      "age": 25,
+      "city": "Ajegunle",
+      "gender": "male",
+      "state": "lagos",
+      "email": "tboynoni@yahoo.com"
+    },
+    {
+      "firstname": "badmus",
+      "lastname": "muyiwa",
+      "phone": "09022442244",
+      "email": "badmus@yahoo.net",
+      "age": "23",
+      "gender": "male",
+      "state": "lagos",
+      "city": "lekki",
+      "description": "i live large everyday like my life is too good",
+      "password": "badmusMu",
+      "password2": "badmusmu",
+      "id": 3
+    },
+    {
+      "firstname": "mujeeb",
+      "lastname": "fadeyi",
+      "phone": "09055673489",
+      "email": "mujeeb@yahoo.com",
+      "age": "21",
+      "gender": "male",
+      "state": "oyo",
+      "city": "ibadan",
+      "description": "i am married looking for someone to chat with and have fun",
+      "password": "fadeyi12",
+      "password2": "fadeyi12",
+      "id": 4
+    },
+    {
+      "firstname": "ayishat",
+      "lastname": "babatunde",
+      "phone": "08180121201",
+      "email": "ayishatbabatunde@gmail.com",
+      "age": "18",
+      "gender": "female",
+      "state": "kwara",
+      "city": "ilorin",
+      "description": "i am an hair dresser",
+      "password": "ayishat12",
+      "password2": "ayishat12",
+      "id": 5
+    },
+    {
+      "firstname": "alimat",
+      "lastname": "babatunde",
+      "phone": "08180121290",
+      "email": "alimatbabatunde@gmail.com",
+      "age": "18",
+      "gender": "female",
+      "state": "kwara",
+      "city": "ilorin",
+      "description": "i'm a fashion designer",
+      "password": "kehindey",
+      "password2": "kehindey",
+      "id": 6
+    },
+    {
+      "firstname": "aliko",
+      "lastname": "dangote",
+      "phone": "09022442244",
+      "email": "dangote@gmail.com",
+      "age": "43",
+      "gender": "male",
+      "state": "abuja",
+      "city": "dankama",
+      "description": "richest kid in africa",
+      "password": "dangote1",
+      "password2": "dangote1",
+      "id": 7
+    },
+    {
+      "firstname": "buhari",
+      "lastname": "mohammed",
+      "phone": "07033668820",
+      "email": "buhari@gmail.com",
+      "age": "90",
+      "gender": "male",
+      "state": "abuja",
+      "city": "baruba",
+      "description": "president king of boys association",
+      "password": "buhari12",
+      "password2": "buhari12",
+      "id": 8
+    },
+    {
+      "url": "http://localhost:3000/users",
+      "amp;firtname": "Toyeeb",
+      "amp;lastname": "Ganiu",
+      "id": 14
+    },
+    {
+      "url": "http://localhost:3000/users",
+      "firtname": "Toyeeb",
+      "lastname": "Ganiu",
+      "id": 15
+    },
+    {
+      "firtname": "Toyeeb",
+      "lastname": "Ganiu",
+      "id": 16
+    },
+    {
+      "firtname": "Toyeeb",
+      "lastname": "Baddo",
+      "phone": "07069732084",
+      "city": "Lagos",
+      "id": 17
+    },
+    {
+      "firtname": "Toyeeb",
+      "lastname": "Baddo",
+      "phone": "07069732084",
+      "city": "Lagos",
+      "id": 18
+    }
+  ],
+  "friends": [],
+  "requestsSent": [],
+  "requestsRecieved": [],
+  "chats": [],
+  "chatroomMembers": [],
+  "chatroom": [],
+  "messagesSent": [],
+  "roomMessages": [],
+  "states": [
+    "Abuja",
+    "Oyo",
+    "Kwara",
+    "Lagos"
+  ],
+  "cities": {
+    "Abuja": [
+      "Baruba",
+      "Dankama"
+    ],
+    "Kwara": [
+      "Ilorin",
+      "Asa",
+      "Baruten",
+      "Oyun"
+    ],
+    "Lagos": [
+      "Surulere",
+      "Ikeja",
+      "Lekki",
+      "Epe",
+      "Ajegunle",
+      "Apapa",
+      "Tolu"
+    ],
+    "Oyo": [
+      "Ibadan",
+      "Sango",
+      "Isheyin",
+      "Bodija"
+    ]
+  }
+}
