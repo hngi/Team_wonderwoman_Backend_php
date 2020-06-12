@@ -228,6 +228,7 @@ session_start();
                 ?>
             </p>
             <form action="script.php" method="POST" id="api-form">
+                <buttonn id="add-param">Add Required parameter</buttonn>
                 <p>
                     <label for="request">Request Type</label>
                     <select name="request" id="request">
@@ -240,7 +241,7 @@ session_start();
                 </p>
                 <p>Required Parameters</p>
                 <p>
-                    <input type="text" name="url" value="https://my-json-server.typicode.com/TokyoTG/json-server/users" hidden>
+                    <input type="text" name="url" placeholder="add url">
                 </p>
                 <p>
                     <input type="text" name="name">
@@ -281,6 +282,12 @@ session_start();
                 }
                 console.log(last.style.width)
             })
+        })
+
+        let add = document.getElementById("add-param");
+        add.addEventListener('click', () => {
+            apiForm = document.getElementById('api-form');
+
         })
     </script>
 </body>
