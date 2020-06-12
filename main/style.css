@@ -104,6 +104,49 @@
 #result {
   margin-left: 310px;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#table-container {
+  width: 70%;
+  display: inline-block;
+  max-width: 350px;
+}
+
+#status {
+  min-width: 250px;
+  max-width: 250px;
+  display: inline-block;
+  border-radius: 10px;
+  background: grey;
+  position: relative;
+  height: 150px;
+}
+
+#status p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #fafafa;
+}
+
 @media only screen and (max-width: 650px) {
   #side-nav {
     overflow-x: hidden;

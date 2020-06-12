@@ -171,10 +171,35 @@ session_start();
         </div>
     </div>
     <div id="result">
-        <h1>Results here</h1>
+        <h1>END POINT RESULTS</h1>
+
+        <div id="status">
+            <p>No Tested API</p>
+        </div>
+        <p id="speed">
+
+        </p>
+        <div id="table-container">
+            <h3>Returned Data</h3>
+            <table>
+                <tr>
+                    <th>Company</th>
+                    <td>Alfreds Futterkiste</td>
+                </tr>
+                <tr>
+                    <th>Contact</th>
+                    <td>Maria Anders</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>Mexico</td>
+                </tr>
+            </table>
+
+        </div>
         <div>
             <h4>End point name</h4>
-            <form action="script.php" method="POST">
+            <form action="script.php" method="POST" id="api-form">
                 <p>
                     <label for="request">Request Type</label>
                     <select name="request" id="request">
@@ -187,20 +212,29 @@ session_start();
                 </p>
                 <p>Required Parameters</p>
                 <p>
-                    <input type="text" name="url" hidden>
+                    <input type="text" name="url" value="http://localhost:3000/users">
+                </p>
+                <!-- 
+                <p>
+                    <input type="text" name="firtname">
                 </p>
                 <p>
-                    <input type="text" name="param1">
+                    <input type="text" name="lastname">
                 </p>
                 <p>
-                    <input type="text" name="param2">
+                    <input type="text" name="phone">
+                </p>
+                <p>
+                    <input type="text" name="city">
+                </p> -->
+                <p>
+                    <input type="text" name="id">
                 </p>
                 <p>
                     <button type="submit">Test Endpoint</button>
                 </p>
             </form>
         </div>
-
     </div>
 
     <script>
