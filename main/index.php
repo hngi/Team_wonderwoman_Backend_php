@@ -9,6 +9,7 @@
     <title>Dashboard</title>
 </head>
 <?php
+require('functions.php');
 session_start();
 ?>
 
@@ -172,38 +173,65 @@ session_start();
     </div>
     <div id="result">
         <h1>END POINT RESULTS</h1>
-
+        <?php
+        getapis();
+        ?>
         <div id="status">
-            <p>No Tested API</p>
+            <p>STATUS</p>
         </div>
         <p id="speed">
 
         </p>
         <div id="table-container">
+            <p>
+                <pre>
+
+                </pre>
+
+            </p>
             <h3>Returned Data</h3>
             <table>
-                <tr>
-                    <th>Company</th>
-                    <td>Alfreds Futterkiste</td>
-                </tr>
-                <tr>
-                    <th>Contact</th>
-                    <td>Maria Anders</td>
-                </tr>
-                <tr>
-                    <th>Country</th>
-                    <td>Mexico</td>
-                </tr>
+                <?php
+                if (isset($_SESSION['returned_data']) && !empty($_SESSION['returned_data'])) {
+                    $res = json_decode($_SESSION['returned_data'], true);
+                    echo display_return_data($res);
+                    unset($_SESSION['returned_data']);
+                } else {
+                    echo "No test yet";
+                }
+                ?>
+            </table>
+        </div>
+        <div id="table-container">
+            <h3>Connection Data</h3>
+            <table>
+                <?php
+                if (isset($_SESSION['connection_data']) && !empty($_SESSION['connection_data'])) {
+                    $res = json_decode($_SESSION['connection_data'], true);
+                    echo display_return_data($res);
+                    unset($_SESSION['connection_data']);
+                } else {
+                    echo "No test yet";
+                }
+                ?>
             </table>
 
         </div>
         <div>
             <h4>End point name</h4>
+            <p>
+                <?php
+                if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
+            </p>
             <form action="script.php" method="POST" id="api-form">
                 <p>
                     <label for="request">Request Type</label>
                     <select name="request" id="request">
-                        <option value="" selected disabled>Select One</option>
+                        <option value="" selected>Select One</option>
                         <option value="GET">GET</option>
                         <option value="POST">POST</option>
                         <option value="UPDATE">UPDATE</option>
@@ -212,24 +240,23 @@ session_start();
                 </p>
                 <p>Required Parameters</p>
                 <p>
-                    <input type="text" name="url" value="http://localhost:3000/users">
-                </p>
-                <!-- 
-                <p>
-                    <input type="text" name="firtname">
+                    <input type="text" name="url" value="https://my-json-server.typicode.com/TokyoTG/json-server/users" hidden>
                 </p>
                 <p>
-                    <input type="text" name="lastname">
+                    <input type="text" name="name">
+                </p>
+                <!-- <p>
+                    <input type="email" name="email">
                 </p>
                 <p>
-                    <input type="text" name="phone">
-                </p>
-                <p>
-                    <input type="text" name="city">
+                    <input type="password" name="password">
                 </p> -->
+                <!-- <p>
+                    <input type="text" name="city">
+                </p>
                 <p>
                     <input type="text" name="id">
-                </p>
+                </p> -->
                 <p>
                     <button type="submit">Test Endpoint</button>
                 </p>

@@ -103,6 +103,11 @@
 
 #result {
   margin-left: 310px;
+  z-index: 10;
+}
+
+#result h1 {
+  text-align: center;
 }
 
 table {
@@ -135,7 +140,7 @@ tr:nth-child(even) {
   border-radius: 10px;
   background: grey;
   position: relative;
-  height: 150px;
+  height: 80px;
 }
 
 #status p {
@@ -145,6 +150,10 @@ tr:nth-child(even) {
   transform: translate(-50%, -50%);
   font-size: 1.2em;
   color: #fafafa;
+}
+
+#api-form {
+  z-index: 10;
 }
 
 @media only screen and (max-width: 650px) {
